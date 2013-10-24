@@ -19,6 +19,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+#
+# Gist: https://gist.github.com/livibetter/7140262
+# Blog: http://blog.yjl.im/2013/10/checking-new-trending-repos-on-github.html
 
 import argparse
 import json
