@@ -26,6 +26,13 @@ $ gh-trend.py -j $HOME/.gh-trend.json objective-c common-lisp csharp cpp
 
 You may want to check the [RSS URLs][trendrss] for correct language names.
 
+Output looks like:
+
+```
+https://github.com/user/repo
+Description
+(language)
+```
 
 ### With cron
 
@@ -61,6 +68,16 @@ gh-trend.py [options] | awk "
 }
 " > output.html
 ```
+
+Output looks like:
+
+```
+@user/repo
+Description
+(language)
+```
+
+Where `@user/repo` is a hyperlink. Note that there is no specification of encoding since it's only a partial HTML, therefore some Unicode characters may not be displayed correct until manually setting the encoding to UTF-8 in web browser.
 
 
 Bugs and Suggestions
