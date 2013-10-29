@@ -79,6 +79,33 @@ Description
 
 Where `@user/repo` is a hyperlink. Note that there is no specification of encoding since it's only a partial HTML, therefore some Unicode characters may not be displayed correct until manually setting the encoding to UTF-8 in web browser.
 
+Or a more complete HTML output:
+
+```bash
+echo "<html><head><title>gh-trend.py" > output.html
+echo -e '</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body style="background-color:#000;color:#aaa;font-family:Inconsolata;font-weight:bold">\n' >> output.html
+awk "
+/^https/ {
+  print(\"<a href='\" \$0 \"' style='color:lawngreen;text-decoration:none'>\"\
+        gensub(\"https://github.com/\", \"@\", \"\", \$0)\
+        \"</a><br/>\");
+  next;
+}
+/^\(.*\)$/ {
+  print(\"<span style='color:lightblue'>\" \$0 \"</span><br/>\");
+  next;
+}
+/^.+$/ {
+  print(\"<span style='color:lightgrey'>\" \$0 \"</span> \");
+  next;
+}
+/^$/ {
+  print(\"<br/>\");
+}
+" >> output.html
+echo '</body></html>' >> output.html
+```
+
 
 Bugs and Suggestions
 --------------------
