@@ -84,7 +84,7 @@ Or a more complete HTML output:
 ```bash
 echo "<html><head><title>gh-trend.py" > output.html
 echo -e '</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body style="background-color:#000;color:#aaa;font-family:Inconsolata;font-weight:bold">\n' >> output.html
-awk "
+gh-trend.py [options] | awk "
 /^https/ {
   print(\"<a href='\" \$0 \"' style='color:lawngreen;text-decoration:none'>\"\
         gensub(\"https://github.com/\", \"@\", \"\", \$0)\
@@ -106,6 +106,9 @@ awk "
 echo '</body></html>' >> output.html
 ```
 
+The output will look like:
+
+![gh-trend html](https://lh6.googleusercontent.com/-8rkUlLIM_mg/UnHjsIjwtdI/AAAAAAAAFY4/EslKF78trZE/s800/gh-trend%2520html%25202013-10-31--12%253A26%253A41.png)
 
 Bugs and Suggestions
 --------------------
