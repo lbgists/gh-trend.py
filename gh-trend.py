@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Listing new trending repo on GitHub
-# Copyright (c) 2013 Yu-Jie Lin
+# Copyright (c) 2013, 2015 Yu-Jie Lin
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,10 +25,12 @@
 
 import argparse
 import json
-from os import path
 import sys
+from os import path
 
 import feedparser as fp
+
+fp.PREFERRED_XML_PARSERS.remove('drv_libxml2')
 
 # default JSON file is in current working directory
 DEFAULT_JSON = path.abspath(path.basename(sys.argv[0]) + '.json')
@@ -66,9 +68,13 @@ def main():
 
   PERIODS = {'today': 'daily', 'this-week': 'weekly', 'this-month': 'monthly'}
   period = PERIODS[args.period]
+  all_language = [lang.replace('cpp', 'c++') for lang in args.language]
   for lang in args.language:
     for repo, description in get_trend(lang, period):
       if repo in LIST:
+        continue
+      lang_desc = description.rsplit('\n', 1)[-1].strip('()').lower()
+      if lang_desc and lang_desc not in all_language:
         continue
       print(REPO_BASE % repo)
       print(description)
