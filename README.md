@@ -121,7 +121,7 @@ Feel free to comment below, or fork this Gist and notify me with your modificati
 Related Links
 -------------
 
-* Blog post about [why I wrote this script](http://blog.yjl.im/2013/10/checking-new-trending-repos-on-github.html).
+* Blog post about [why I wrote this script](https://yjlv.blogspot.com/2013/10/checking-new-trending-repos-on-github.html).
 
 
 License
