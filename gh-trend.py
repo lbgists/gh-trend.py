@@ -21,7 +21,7 @@
 # THE SOFTWARE.
 #
 # Github: https://github.com/lbgists/gh-trend.py
-# Blog  : https://yjlv.blogspot.com/2013/10/checking-new-trending-repos-on-github.html
+# Blog: https://yjlv.blogspot.com/2013/10/checking-new-trending-repos-on-github.html
 
 import argparse
 import json
@@ -76,7 +76,7 @@ def main():
       lang_desc = description.rsplit('\n', 1)[-1].strip('()').lower()
       if lang_desc and lang_desc not in all_language:
         continue
-      print(REPO_BASE % repo)
+      print(REPO_BASE.format(repo))
       print(description)
       print()
 
